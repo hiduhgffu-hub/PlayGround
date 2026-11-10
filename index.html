@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <meta name="theme-color" content="#090a0b" />
+  <link rel="icon" href="data:," />
+  <title>Dark Whisper — Some secrets should never be awakened</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main id="game-shell">
+    <canvas id="scene" aria-label="First person horror game scene"></canvas>
+    <div class="film-grain"></div><div class="vignette"></div>
+    <section class="screen title-screen" id="title-screen">
+      <div class="title-top"><span class="sigil">✳</span><span>AN INTERACTIVE NIGHTMARE</span><span class="top-line"></span><span>EST. 1891</span></div>
+      <div class="title-content">
+        <p class="eyebrow">A PSYCHOLOGICAL SURVIVAL HORROR</p>
+        <h1>DARK<br><em>WHISPER</em></h1>
+        <p class="tagline">Some secrets should never be awakened.</p>
+        <div class="title-rule"><i></i><span>✦</span><i></i></div>
+        <p class="intro-copy">The monsoon has buried the road. Something in Devgarh has been waiting for you to come home.</p>
+        <button class="primary-button" id="begin-btn"><span>BEGIN YOUR DESCENT</span><b>↗</b></button>
+        <button class="text-button" id="survival-btn">ENTER SURVIVAL MODE <span>→</span></button>
+      </div>
+      <div class="title-bottom"><span>HEADPHONES RECOMMENDED</span><span>MOVE <kbd>W A S D</kbd> &nbsp; LOOK <kbd>MOUSE</kbd> &nbsp; INTERACT <kbd>E</kbd></span><span>VOLUME <span class="sound-toggle" id="sound-toggle">ON ◉</span></span></div>
+    </section>
+    <section class="screen intro-screen hidden" id="intro-screen">
+      <div class="chapter-label">CHAPTER I <i>—</i> THE RETURN</div>
+      <div class="story-card"><div class="story-mark">✳</div><p class="eyebrow">DEVGARH, WESTERN GHATS · 2:17 AM</p><h2>“It knows<br>your name.”</h2><p class="story-text">The letter arrived three days after your sister vanished. No signature. Only a brass key and a line written in your mother's hand:</p><blockquote>“If the whisper starts, do not answer.”</blockquote><p class="story-text">Beyond the rain, the old palace waits. Your sister's lantern is still burning inside.</p><button class="primary-button" id="enter-btn"><span>STEP INTO THE DARK</span><b>→</b></button><button class="skip-button" id="skip-intro">SKIP THE PROLOGUE</button></div>
+      <span class="chapter-coord">15°21' N &nbsp; 74°08' E</span>
+    </section>
+    <section class="screen game-screen hidden" id="game-screen">
+      <header class="game-header"><div class="game-brand"><span>✳</span><div><b>DARK WHISPER</b><small>DEVGARH ESTATE</small></div></div><div class="chapter-name"><small id="chapter-kicker">CHAPTER I · THE RETURN</small><span id="objective">Find a way into the palace</span></div><button class="icon-button" id="pause-btn" aria-label="Pause">Ⅱ</button></header>
+      <div class="game-hud"><div class="vitals"><div class="vital"><span class="vital-icon">◉</span><div><small>SANITY</small><div class="meter"><i id="sanity-meter"></i></div></div><b id="sanity-value">86%</b></div><div class="vital"><span class="vital-icon lantern-icon">♨</span><div><small>LANTERN OIL</small><div class="meter oil"><i id="oil-meter"></i></div></div><b id="oil-value">74%</b></div></div><div class="relic-counter"><span>✧</span><b id="relic-count">0</b><small>/ 3<br>MEMORIES</small></div></div>
+      <div id="toast" class="toast"></div><div id="interaction-prompt" class="interaction-prompt hidden"><kbd>E</kbd><span>LISTEN</span></div>
+      <div class="whisper-text" id="whisper-text"></div>
+      <div class="crosshair"><i></i><i></i></div>
+      <div class="bottom-hint"><span id="location-label">THE EASTERN COURTYARD</span><span><kbd>F</kbd> LANTERN <i>·</i> <kbd>SHIFT</kbd> RUN</span></div>
+      <div class="touch-controls" id="touch-controls"><div class="move-pad"><button data-move="forward">▲</button><div><button data-move="left">◀</button><button data-move="back">▼</button><button data-move="right">▶</button></div></div><div class="look-pad"><span>DRAG TO LOOK</span><button id="touch-interact">E</button><button id="touch-lantern">♨</button></div></div>
+    </section>
+    <section class="screen pause-screen hidden" id="pause-screen"><div class="pause-card"><p class="eyebrow">DEVGARH ESTATE</p><h2>THE DARK<br><em>IS LISTENING.</em></h2><p class="pause-status">Take a breath. It won't.</p><button class="primary-button" id="resume-btn"><span>RETURN TO THE NIGHT</span><b>→</b></button><button class="text-button" id="restart-btn">RESTART CHAPTER</button><div class="controls-note"><span>WASD / ARROWS <small>MOVE</small></span><span>MOUSE <small>LOOK</small></span><span>E <small>INTERACT</small></span><span>F <small>LANTERN</small></span></div></div></section>
+    <section class="screen ending-screen hidden" id="ending-screen"><div class="ending-card"><p class="eyebrow">CHAPTER COMPLETE</p><h2 id="ending-title">THE HOUSE<br>REMEMBERS.</h2><p id="ending-copy">The whisper followed you out.</p><button class="primary-button" id="again-btn"><span>DESCEND AGAIN</span><b>↗</b></button><button class="text-button" id="title-btn">RETURN TO TITLE</button></div></section>
+    <div class="loading-screen hidden" id="loading-screen"><span class="loading-sigil">✳</span><p>THE HOUSE IS WAKING</p><div class="loading-bar"><i></i></div></div>
+  </main>
+  <script src="game.js"></script>
+</body>
+</html>

@@ -16,3 +16,24 @@
 - 👤 [Explore the creator's projects](https://go.ondev.store/hiduhgffu-hub).
 - 🌍 [Create with OMGithub](https://go.ondev.store/).
 <!-- omgithub:readme:end -->
+
+## DARK WHISPER
+
+A browser-playable first-person psychological survival horror experience set across Devgarh's abandoned palace, sunken chambers, and forgotten village.
+
+### Run locally
+
+Serve this folder with any static HTTP server, then open its URL in a modern browser. For example:
+
+```sh
+python3 -m http.server 3002
+```
+
+### Play
+
+- **WASD / arrow keys** to move; **mouse** to look; **Shift** to run.
+- **E** to collect memories and interact with seals; **F** to toggle the lantern; **Esc** to pause.
+- On touch screens, use the on-screen movement buttons and drag the scene to look around.
+- Story mode has three chapters; Survival mode loops through the locations with a more persistent threat.
+
+This is a self-contained client-side prototype. Online co-op matchmaking/network synchronization and native Android packaging need a server/build pipeline and are not included in this repository.
